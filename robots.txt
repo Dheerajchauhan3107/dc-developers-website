@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://hidden-morning-e084.dheerajchauhan3107.workers.dev/sitemap.xml

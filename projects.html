@@ -1,0 +1,846 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Explore the research interests, development roadmap and technology focus areas of DC DEVELOPERS.">
+
+    <title>Our Work & Research | DC DEVELOPERS</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* =====================================
+           DC DEVELOPERS
+           OUR WORK & RESEARCH
+        ===================================== */
+
+        :root {
+            --project-glass: rgba(12, 29, 50, .78);
+            --project-border: rgba(130, 190, 255, .17);
+            --project-cyan: #00d9ff;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* HERO */
+
+        .work-hero {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 125px 0 100px;
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 0%,
+                    rgba(0, 130, 255, .22),
+                    transparent 65%
+                ),
+                var(--background);
+        }
+
+        .work-hero::before,
+        .work-hero::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(110px);
+            pointer-events: none;
+        }
+
+        .work-hero::before {
+            background: rgba(0, 120, 255, .16);
+            top: -180px;
+            left: 5%;
+        }
+
+        .work-hero::after {
+            background: rgba(0, 220, 255, .10);
+            bottom: -200px;
+            right: 5%;
+        }
+
+        .work-hero h1 {
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.12;
+            margin: 24px 0;
+            letter-spacing: -2.5px;
+        }
+
+        .work-hero h1 span {
+            background: linear-gradient(90deg, #00d9ff, #398bff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .work-hero p {
+            max-width: 690px;
+            margin: auto;
+            color: var(--muted);
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+        /* INTRO */
+
+        .work-intro {
+            padding: 75px 0 30px;
+        }
+
+        .work-intro-box {
+            padding: 35px;
+            border: 1px solid var(--project-border);
+            border-radius: 16px;
+            background: var(--project-glass);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            box-shadow: 0 10px 35px rgba(0,0,0,.2);
+        }
+
+        .work-intro-box h2 {
+            font-size: clamp(25px, 4vw, 35px);
+            margin: 15px 0;
+        }
+
+        .work-intro-box p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.9;
+            max-width: 850px;
+        }
+
+        /* FOCUS AREAS */
+
+        .focus-section {
+            padding: 65px 0 100px;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .focus-card {
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid var(--project-border);
+            background: var(--project-glass);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            transition: .35s ease;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0,210,255,.5);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.3),
+                0 0 25px rgba(0,160,255,.10);
+        }
+
+        .focus-image {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            height: 205px;
+            background: #0b1b30;
+        }
+
+        .focus-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            filter: brightness(.8) saturate(.9);
+            transition: transform .65s ease;
+        }
+
+        .focus-card:hover .focus-image img {
+            transform: scale(1.08);
+            filter: brightness(1) saturate(1.1);
+        }
+
+        .focus-image::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                transparent 35%,
+                rgba(4,12,25,.9)
+            );
+        }
+
+        .focus-label {
+            position: absolute;
+            z-index: 2;
+            top: 15px;
+            right: 15px;
+            padding: 8px 11px;
+
+            border: 1px solid rgba(0,210,255,.25);
+            border-radius: 5px;
+            background: rgba(3,15,30,.7);
+
+            color: #8beaff;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+        }
+
+        .focus-content {
+            padding: 27px;
+        }
+
+        .focus-number {
+            color: var(--project-cyan);
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 13px;
+        }
+
+        .focus-content h3 {
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 13px;
+        }
+
+        .focus-content p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+            min-height: 100px;
+        }
+
+        .focus-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 17px;
+            padding: 8px 12px;
+
+            border: 1px solid rgba(0,200,255,.23);
+            border-radius: 30px;
+            background: rgba(0,160,255,.08);
+
+            color: #55dcff;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .focus-status::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #00d9ff;
+            box-shadow: 0 0 9px #00d9ff;
+        }
+
+        /* ROADMAP */
+
+        .roadmap-section {
+            padding: 80px 0 100px;
+            background:
+                radial-gradient(
+                    ellipse at 50% 50%,
+                    rgba(0,130,255,.09),
+                    transparent 65%
+                );
+        }
+
+        .roadmap {
+            position: relative;
+            max-width: 800px;
+            margin: 45px auto 0;
+        }
+
+        .roadmap::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 17px;
+            width: 1px;
+            background: linear-gradient(
+                180deg,
+                var(--project-cyan),
+                rgba(0,130,255,.1)
+            );
+        }
+
+        .roadmap-item {
+            position: relative;
+            padding: 0 0 35px 60px;
+        }
+
+        .roadmap-dot {
+            position: absolute;
+            top: 3px;
+            left: 8px;
+            width: 19px;
+            height: 19px;
+            border: 2px solid var(--project-cyan);
+            border-radius: 50%;
+            background: #07111f;
+            box-shadow: 0 0 15px rgba(0,210,255,.4);
+        }
+
+        .roadmap-content {
+            padding: 24px;
+            border: 1px solid var(--project-border);
+            border-radius: 13px;
+            background: rgba(12,29,50,.65);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .roadmap-content small {
+            color: var(--project-cyan);
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .roadmap-content h3 {
+            margin: 10px 0;
+            font-size: 19px;
+        }
+
+        .roadmap-content p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* TRANSPARENCY */
+
+        .transparency-section {
+            padding: 0 0 100px;
+        }
+
+        .transparency-box {
+            padding: 40px;
+            text-align: center;
+            border: 1px solid var(--project-border);
+            border-radius: 16px;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 100%,
+                    rgba(0,140,255,.12),
+                    transparent 70%
+                ),
+                rgba(12,29,50,.65);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .transparency-box h2 {
+            font-size: clamp(25px, 4vw, 36px);
+            margin: 17px 0;
+        }
+
+        .transparency-box p {
+            max-width: 700px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* CTA */
+
+        .work-cta {
+            padding: 90px 20px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    ellipse at 50% 100%,
+                    rgba(0,140,255,.18),
+                    transparent 65%
+                ),
+                #07111f;
+            border-top: 1px solid var(--project-border);
+        }
+
+        .work-cta h2 {
+            font-size: clamp(29px, 4vw, 46px);
+            margin: 20px 0 15px;
+        }
+
+        .work-cta p {
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 950px) {
+            .focus-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media(max-width: 650px) {
+            .work-hero {
+                padding: 90px 0 70px;
+            }
+
+            .work-hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .work-intro {
+                padding: 55px 0 20px;
+            }
+
+            .work-intro-box {
+                padding: 25px;
+            }
+
+            .focus-section {
+                padding: 55px 0 75px;
+            }
+
+            .focus-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .focus-image {
+                height: 190px;
+            }
+
+            .focus-content p {
+                min-height: auto;
+            }
+
+            .roadmap-section {
+                padding: 60px 0 75px;
+            }
+
+            .roadmap-item {
+                padding-left: 48px;
+            }
+
+            .roadmap-content {
+                padding: 20px;
+            }
+
+            .transparency-box {
+                padding: 28px 20px;
+            }
+
+            .work-cta {
+                padding: 70px 18px;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+            .focus-card,
+            .focus-image img {
+                transition: none;
+            }
+
+            .focus-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="container navbar">
+
+        <a href="index.html" class="brand">
+            <img src="assets/images/logo.png" alt="DC DEVELOPERS Logo">
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="insights.html">Insights</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+<section class="work-hero">
+    <div class="container">
+
+        <span class="section-tag">OUR JOURNEY</span>
+
+        <h1>
+            Building Today.<br>
+            <span>Securing Tomorrow.</span>
+        </h1>
+
+        <p>
+            Every meaningful solution starts with learning,
+            research and experimentation. Explore the technology
+            areas that shape the direction of DC DEVELOPERS.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- INTRO -->
+<section class="work-intro">
+    <div class="container">
+
+        <div class="work-intro-box">
+
+            <span class="section-tag">BEHIND THE JOURNEY</span>
+
+            <h2>We Are Building Our Foundation.</h2>
+
+            <p>
+                DC DEVELOPERS is at an early stage of its journey.
+                Our current focus is on strengthening technical
+                knowledge, exploring cybersecurity concepts and
+                developing the foundation for future technology
+                initiatives.
+
+                This page shares our areas of interest and planned
+                direction rather than presenting unfinished work
+                as completed products.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FOCUS AREAS -->
+<section class="focus-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-tag">AREAS OF EXPLORATION</span>
+                <h2>Our Focus Areas</h2>
+            </div>
+        </div>
+
+        <div class="focus-grid">
+
+            <!-- AREA 1 -->
+            <article class="focus-card">
+
+                <div class="focus-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&auto=format&fit=crop&q=85"
+                        alt="Cybersecurity digital network"
+                        loading="lazy"
+                    >
+
+                    <span class="focus-label">01 / CYBERSECURITY</span>
+                </div>
+
+                <div class="focus-content">
+
+                    <div class="focus-number">FOCUS AREA 01</div>
+
+                    <h3>Cybersecurity Research</h3>
+
+                    <p>
+                        Exploring web security, vulnerability
+                        assessment concepts, application security
+                        and responsible security practices.
+                    </p>
+
+                    <span class="focus-status">Learning & Research</span>
+
+                </div>
+
+            </article>
+
+
+            <!-- AREA 2 -->
+            <article class="focus-card">
+
+                <div class="focus-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&auto=format&fit=crop&q=85"
+                        alt="Computer hardware and circuits"
+                        loading="lazy"
+                    >
+
+                    <span class="focus-label">02 / TECHNOLOGY</span>
+                </div>
+
+                <div class="focus-content">
+
+                    <div class="focus-number">FOCUS AREA 02</div>
+
+                    <h3>Technology Development</h3>
+
+                    <p>
+                        Exploring software development, programming
+                        and practical technology solutions that
+                        can address real-world problems.
+                    </p>
+
+                    <span class="focus-status">Exploration</span>
+
+                </div>
+
+            </article>
+
+
+            <!-- AREA 3 -->
+            <article class="focus-card">
+
+                <div class="focus-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&auto=format&fit=crop&q=85"
+                        alt="Digital global network"
+                        loading="lazy"
+                    >
+
+                    <span class="focus-label">03 / DIGITAL SAFETY</span>
+                </div>
+
+                <div class="focus-content">
+
+                    <div class="focus-number">FOCUS AREA 03</div>
+
+                    <h3>Digital Safety & Awareness</h3>
+
+                    <p>
+                        Exploring ways to improve cybersecurity
+                        awareness, digital literacy and safer
+                        online experiences.
+                    </p>
+
+                    <span class="focus-status">Concept Exploration</span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ROADMAP -->
+<section class="roadmap-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-tag">THE ROAD AHEAD</span>
+                <h2>Our Development Roadmap</h2>
+            </div>
+        </div>
+
+        <div class="roadmap">
+
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+
+                <div class="roadmap-content">
+                    <small>PHASE 01 / FOUNDATION</small>
+
+                    <h3>Learn & Explore</h3>
+
+                    <p>
+                        Strengthening core technical knowledge,
+                        understanding cybersecurity fundamentals
+                        and exploring tools and technologies.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+
+                <div class="roadmap-content">
+                    <small>PHASE 02 / DEVELOPMENT</small>
+
+                    <h3>Experiment & Build</h3>
+
+                    <p>
+                        Working towards practical learning projects,
+                        technical experiments and responsible
+                        development initiatives.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+
+                <div class="roadmap-content">
+                    <small>PHASE 03 / GROWTH</small>
+
+                    <h3>Test & Improve</h3>
+
+                    <p>
+                        Evaluating developed solutions, improving
+                        quality and documenting technical progress.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+
+                <div class="roadmap-content">
+                    <small>PHASE 04 / FUTURE</small>
+
+                    <h3>Responsible Innovation</h3>
+
+                    <p>
+                        Working towards useful technology and
+                        cybersecurity solutions with an emphasis
+                        on security, responsibility and trust.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TRANSPARENCY -->
+<section class="transparency-section">
+    <div class="container">
+
+        <div class="transparency-box">
+
+            <span class="section-tag">OUR COMMITMENT</span>
+
+            <h2>Progress Over Pretence.</h2>
+
+            <p>
+                We believe in showing genuine progress.
+                The areas on this page represent our interests,
+                exploration and future direction. They are not
+                claims of completed products or commercially
+                available solutions.
+
+                As our work develops, verified projects and
+                achievements will be added here.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CTA -->
+<section class="work-cta">
+    <div class="container">
+
+        <span class="section-tag">STAY CONNECTED</span>
+
+        <h2>The Journey Has Just Begun.</h2>
+
+        <p>
+            Follow our journey as we learn, build and explore technology.
+        </p>
+
+        <a href="contact.html" class="btn btn-primary">
+            Contact Us
+        </a>
+
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+                <img src="assets/images/logo.png" alt="DC DEVELOPERS">
+
+                <p>LEARN • BUILD • SECURE</p>
+
+                <small>
+                    Exploring technology. Building responsibly.
+                </small>
+            </div>
+
+            <div class="footer-links">
+
+                <div>
+                    <h4>Navigation</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="projects.html">Projects</a>
+                </div>
+
+                <div>
+                    <h4>Explore</h4>
+                    <a href="insights.html">Insights</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 DC DEVELOPERS. All rights reserved.</p>
+            <span>LEARN • BUILD • SECURE</span>
+        </div>
+
+    </div>
+</footer>
+
+
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
